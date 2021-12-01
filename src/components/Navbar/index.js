@@ -3,9 +3,11 @@ import { Carro } from '../Carro'
 import styles from './estilos'
 import AppContext from "../../context/AppContext";
 
-export const Navbar = ({ //cantidad,
+export const Navbar = (
+                        //{ //cantidad,
                         //productos
-                            }) => {
+                        //}
+                            ) => {
 
     const { carrito, eliminarProducto } = useContext(AppContext)
     //console.log(carrito)

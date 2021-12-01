@@ -1,5 +1,6 @@
-import { useState } from 'react'
+import { useState, useEffect } from 'react'
 import AppContext from './AppContext'
+
 
 const stateInicial= [
     {id: 1, nombre: 'Homepod Mini', precio: 99, imagen: '/images/homepod-mini.jpg'},
@@ -10,7 +11,14 @@ const stateInicial= [
 ]
 
 const AppState = ({children}) => {
-    const [articulos, guardarArticulo] = useState(stateInicial)
+    const [articulos, guardarArticulo] = useState([])
+
+    useEffect(()=> {
+        guardarArticulo(stateInicial)
+        // eslint-disable-next-line
+    }, [])
+    
+    
     const [ carrito, guardarCarrito ] = useState([])
     ///agregando al carrito
     const agregarAlCarro = (producto) => {
