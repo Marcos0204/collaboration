@@ -1,7 +1,9 @@
 import styles from './estilos'
 import { Button } from '../Button'
 
+
 export const Articulo = ({prod, agregarAlCarro}) => {
+    
     return (
         <article style={styles.article}>
             <div style={styles.imgWrapperImg(prod.imagen)}>

@@ -2,8 +2,10 @@ import { useState } from 'react'
 import { Burbuja } from '../Burbuja'
 import styles from './estilos'
 
-export const Carro = ({ cantidad, productos }) => {
-
+export const Carro = ({
+    cantidad,
+    productos
+}) => {
     const [mostrarCarro, setMostrarCarro] = useState(false)
 
     const handleMostrarCarro = _ => setMostrarCarro(!mostrarCarro)
