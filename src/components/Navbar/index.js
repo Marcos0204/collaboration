@@ -6,13 +6,14 @@ import AppContext from "../../context/AppContext";
 export const Navbar = ({ //cantidad,
                         //productos
                             }) => {
-    const { carrito } = useContext(AppContext)
+
+    const { carrito, eliminarProducto } = useContext(AppContext)
     //console.log(carrito)
     let cantidad = carrito.reduce((acum, actual) => acum + actual.cantidad, 0)
     return (
         <nav style={styles.nav}>
             <p>Logo</p>
-            <Carro cantidad={cantidad} productos={carrito} />
+            <Carro cantidad={cantidad} productos={carrito} eliminarProducto={eliminarProducto} />
         </nav>
     )
 }

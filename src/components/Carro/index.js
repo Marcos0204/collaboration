@@ -4,7 +4,8 @@ import styles from './estilos'
 
 export const Carro = ({
     cantidad,
-    productos
+    productos,
+    eliminarProducto
 }) => {
     const [mostrarCarro, setMostrarCarro] = useState(false)
 
@@ -13,6 +14,10 @@ export const Carro = ({
     let subTotal = productos.reduce((acum, prod) => (prod.cantidad * prod.precio) + acum, 0)
     let impto = subTotal * 0.15
     let totalPagar = subTotal + impto
+    
+    const eliminar = (x) => {
+        eliminarProducto(x)
+    }
 
     return (
         <div style={styles.carroContenedor}>
@@ -27,9 +32,19 @@ export const Carro = ({
                             {
                                 productos.map(x => {
                                     return (
-                                        <li style={styles.li}>
+                                        <li
+                                            style={styles.li}
+                                            key={x.id}
+                                        >
                                             <img height={25} alt={x.nombre} src={x.imagen} />
-                                            <span><button style={styles.deleteButton}>X</button> {x.nombre}</span>
+                                            <span>
+                                                <button
+                                                    style={styles.deleteButton}
+                                                    onClick={()=> eliminar(x)}
+                                                    >
+                                                        X
+                                                </button> {x.nombre}
+                                            </span>
                                             <span>
                                                 ({x.cantidad} x {x.precio.toLocaleString()}) = <strong>{(x.cantidad * x.precio).toLocaleString()}</strong>
                                             </span>

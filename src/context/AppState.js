@@ -12,8 +12,8 @@ const stateInicial= [
 const AppState = ({children}) => {
     const [articulos, guardarArticulo] = useState(stateInicial)
     const [ carrito, guardarCarrito ] = useState([])
-
-    const addToCar = (producto) => {
+    ///agregando al carrito
+    const agregarAlCarro = (producto) => {
         // 1- Verificar si el producto clickeado ya està en el carrito
         if (carrito.find(x => x.id === producto.id)) {
           // 2- En caso de ya estar en el carrito, aumentamos la cantidad en 1
@@ -25,13 +25,20 @@ const AppState = ({children}) => {
     
         guardarCarrito([...carrito, {...producto, cantidad: 1}])
       }
+    
+    ///eliminar compra
+    const eliminarProducto = producto => {
+        const nuevaLista = carrito.filter(item => item.id !== producto.id)
+        guardarCarrito(nuevaLista)
+    }
 
     return (
         <AppContext.Provider
             value={{
                 articulos: articulos,
                 carrito: carrito,
-                addToCar
+                agregarAlCarro,
+                eliminarProducto
             }}
         >
             {children}
