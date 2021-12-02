@@ -3,9 +3,7 @@ import { Articulo } from "../Articulo";
 import styles from './estilos'
 import AppContext from "../../context/AppContext";
 
-export const Articulos = (props) => {
-    //const productos = props.data.articulos
-    const agregarAlCarro = props.agregarAlCarro
+export const Articulos = () => {
 
     const { articulos } = useContext(AppContext)
 
@@ -14,7 +12,10 @@ export const Articulos = (props) => {
             {
                 articulos.map(prod => 
                     // <Articulo nombre={prod.nombre} precio={prod.precio} imagen={prod.imagen} />
-                    <Articulo key={prod.id} prod={prod} agregarAlCarro={agregarAlCarro} />
+                    <Articulo
+                        key={prod.id}
+                        prod={prod}
+                    />
                 )
             }
         </div>

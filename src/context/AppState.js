@@ -1,25 +1,19 @@
 import { useState, useEffect } from 'react'
 import AppContext from './AppContext'
+import { dataProductos } from '../api/Data'
 
 
-const stateInicial= [
-    {id: 1, nombre: 'Homepod Mini', precio: 99, imagen: '/images/homepod-mini.jpg'},
-    {id: 2, nombre: 'iMac', precio: 1200, imagen: '/images/imac.jpeg'},
-    {id: 3, nombre: 'iPad Mini', precio: 400, imagen: '/images/ipad-mini.jpg'},
-    {id: 4, nombre: 'iPhone 13 Pro', precio: 1100, imagen: '/images/iphone13-pro.jpg'},
-    {id: 5, nombre: 'Macbook Pro', precio: 1600, imagen: '/images/macbook-pro.png'}
-]
 
 const AppState = ({children}) => {
     const [articulos, guardarArticulo] = useState([])
-
+    const [ carrito, guardarCarrito ] = useState([])
     useEffect(()=> {
-        guardarArticulo(stateInicial)
+        guardarArticulo(dataProductos)
         // eslint-disable-next-line
     }, [])
     
     
-    const [ carrito, guardarCarrito ] = useState([])
+    
     ///agregando al carrito
     const agregarAlCarro = (producto) => {
         // 1- Verificar si el producto clickeado ya està en el carrito

@@ -15,6 +15,7 @@ export const Carro = ({
     let impto = subTotal * 0.15
     let totalPagar = subTotal + impto
     
+    ////funcion para eliminar el producto
     const eliminar = (x) => {
         eliminarProducto(x)
     }
