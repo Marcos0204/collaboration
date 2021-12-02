@@ -1,6 +1,7 @@
 import { useState } from 'react'
 import { Burbuja } from '../Burbuja'
 import styles from './estilos'
+import { Contenedor, Button, ListaArticulos } from './styles'
 
 export const Carro = ({
     cantidad,
@@ -21,14 +22,14 @@ export const Carro = ({
     }
 
     return (
-        <div style={styles.carroContenedor}>
+        <Contenedor>
             {cantidad > 0 && <Burbuja cantidad={cantidad} />}
-            <button onClick={handleMostrarCarro} style={styles.carro}>
+            <Button onClick={handleMostrarCarro} >
                 Carro
-            </button>
+            </Button>
             {
                 (cantidad > 0 && mostrarCarro) && 
-                    <div style={styles.listaArticulos}>
+                    <ListaArticulos>
                         <ul style={styles.ul}>
                             {
                                 productos.map(x => {
@@ -66,9 +67,9 @@ export const Carro = ({
                                 <strong>{totalPagar.toLocaleString()}</strong>
                             </li>
                         </ul>
-                    </div>
+                    </ListaArticulos>
             }
-        </div>
+        </Contenedor>
 
     )
 }
