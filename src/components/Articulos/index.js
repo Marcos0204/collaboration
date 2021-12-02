@@ -1,6 +1,6 @@
 import { useContext } from 'react'
 import { Articulo } from "../Articulo";
-import styles from './estilos'
+import { Container } from './styles';
 import AppContext from "../../context/AppContext";
 
 export const Articulos = () => {
@@ -8,7 +8,7 @@ export const Articulos = () => {
     const { articulos } = useContext(AppContext)
 
     return (
-        <div style={styles.div}>
+        <Container >
             {
                 articulos.map(prod => 
                     // <Articulo nombre={prod.nombre} precio={prod.precio} imagen={prod.imagen} />
@@ -18,6 +18,6 @@ export const Articulos = () => {
                     />
                 )
             }
-        </div>
+        </Container>
     )
 }
