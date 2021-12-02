@@ -1,6 +1,7 @@
 import { useContext } from 'react'
 import { Carro } from '../Carro'
-import styles from './estilos'
+
+import {Nav} from './styles'
 import AppContext from "../../context/AppContext";
 
 export const Navbar = () => {
@@ -9,9 +10,9 @@ export const Navbar = () => {
    
     let cantidad = carrito.reduce((acum, actual) => acum + actual.cantidad, 0)
     return (
-        <nav style={styles.nav}>
+        <Nav>
             <p>Logo</p>
             <Carro cantidad={cantidad} productos={carrito} eliminarProducto={eliminarProducto} />
-        </nav>
+        </Nav>
     )
 }

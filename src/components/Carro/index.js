@@ -1,7 +1,7 @@
 import { useState } from 'react'
 import { Burbuja } from '../Burbuja'
-import styles from './estilos'
-import { Contenedor, Button, ListaArticulos } from './styles'
+//import styles from './estilos'
+import { Contenedor, Button, ListaArticulos, UL, LI, DeleteButton } from './styles'
 
 export const Carro = ({
     cantidad,
@@ -30,43 +30,41 @@ export const Carro = ({
             {
                 (cantidad > 0 && mostrarCarro) && 
                     <ListaArticulos>
-                        <ul style={styles.ul}>
+                        <UL >
                             {
                                 productos.map(x => {
                                     return (
-                                        <li
-                                            style={styles.li}
+                                        <LI
                                             key={x.id}
                                         >
                                             <img height={25} alt={x.nombre} src={x.imagen} />
                                             <span>
-                                                <button
-                                                    style={styles.deleteButton}
+                                                <DeleteButton
                                                     onClick={()=> eliminar(x)}
                                                     >
                                                         X
-                                                </button> {x.nombre}
+                                                </DeleteButton> {x.nombre}
                                             </span>
                                             <span>
                                                 ({x.cantidad} x {x.precio.toLocaleString()}) = <strong>{(x.cantidad * x.precio).toLocaleString()}</strong>
                                             </span>
-                                        </li>
+                                        </LI>
                                     )
                                 })
                             }
-                            <li style={styles.li}>
+                            <LI>
                                 <strong>Sub total</strong>
                                 <strong>{subTotal.toLocaleString()}</strong>
-                            </li>
-                            <li style={styles.li}>
+                            </LI>
+                            <LI>
                                 <strong>Impuesto</strong>
                                 <strong>{impto.toLocaleString()}</strong>
-                            </li>
-                            <li style={styles.li}>
+                            </LI>
+                            <LI>
                                 <strong>Total a pagar</strong>
                                 <strong>{totalPagar.toLocaleString()}</strong>
-                            </li>
-                        </ul>
+                            </LI>
+                        </UL>
                     </ListaArticulos>
             }
         </Contenedor>

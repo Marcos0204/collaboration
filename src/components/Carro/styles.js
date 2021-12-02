@@ -23,3 +23,26 @@ right: 0;
 top: 50px;
 width: 400px;
 `
+
+export const UL= styled.ul`
+    list-style-type: none;
+    margin: 0;
+    padding: 0;
+`
+export const LI = styled.li`
+    align-items: center;
+    border-bottom: 1px dashed #ccc;
+    display: flex;
+    justify-content: space-between;
+    margin-bottom: 10px;
+    padding-bottom: 5px;
+`
+export const DeleteButton= styled.button`
+    border: none;
+    background-color: #fb0207;
+    border-radius: 50%;
+    color: #fff;
+    cursor: pointer;
+    font-size: 0.6em;
+    padding: 2px 5px;
+`
