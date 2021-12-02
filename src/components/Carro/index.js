@@ -18,7 +18,12 @@ export const Carro = ({
     
     ////funcion para eliminar el producto
     const eliminar = (x) => {
-        eliminarProducto(x)
+       // alert('Esta eliminando, ¿Desea Continuar?')
+
+        if(window.confirm('Esta eliminando, ¿Desea continuar con la operacion?')){
+            eliminarProducto(x)
+        }
+        
     }
 
     return (
