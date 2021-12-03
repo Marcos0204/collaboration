@@ -5,12 +5,13 @@ import AppContext from "../../context/AppContext";
 
 export const Articulos = () => {
 
-    const { articulos } = useContext(AppContext)
-
+    const { articulos, busqueda } = useContext(AppContext)
+    console.log(busqueda.length)
+    const arrayProductos = busqueda.length === 0 ? articulos : busqueda
     return (
         <Container >
             {
-                articulos.map(prod => 
+                arrayProductos.map(prod => 
                     // <Articulo nombre={prod.nombre} precio={prod.precio} imagen={prod.imagen} />
                     <Articulo
                         key={prod.id}

@@ -1,17 +1,16 @@
-import React, { useState, useRef } from 'react'
-import { Contenedor, Input, Button } from './styles'
-
+import React, { useState, useRef, useContext } from 'react'
+import { Contenedor, Input } from './styles'
+import AppContext from '../../context/AppContext'
 
 const Buscador = () => {
     const [buscar, Guardar] = useState('')
     const reference = useRef(null);
+    const { filtrarProductos } = useContext(AppContext)
     const handleChange = () =>{
         Guardar(reference.current.value)
+        filtrarProductos(reference.current.value)
     }
-    const haledClick= () =>{
-        console.log(reference.current.value)
-        Guardar('')
-    }
+    
     return (
         <Contenedor>
             <Input
@@ -20,12 +19,8 @@ const Buscador = () => {
                 value={buscar}
                 onChange={handleChange}
                 ref={reference}
+                placeholder='Busca tus Productos'
             />
-            <Button
-                onClick={haledClick}
-            >
-                Buscar
-            </Button>
         </Contenedor>
     )
 }

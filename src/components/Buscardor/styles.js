@@ -8,14 +8,20 @@ height: 30px;
 display: flex;
 align-items: center;
 background-color: white;
+border-radius: 20px;
+padding: 7px 10px;
 `
 export const Input = styled.input`
-    height: 90%;
+    height: 100%;
     width: 100%;
-`
-export const Button = styled.button`
     border: none;
-    background-color: transparent;
-    cursor: pointer;
-    height: 90%;
+    outline: none;
+
+
 `
+// export const Button = styled.button`
+//     border: none;
+//     background-color: transparent;
+//     cursor: pointer;
+//     height: 90%;
+// `

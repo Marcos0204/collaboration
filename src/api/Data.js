@@ -1,4 +1,4 @@
-export const dataProductos= [
+export const dataProductos = [
     {id: 1, nombre: 'Homepod Mini', precio: 99, imagen: '/images/homepod-mini.jpg'},
     {id: 2, nombre: 'iMac', precio: 1200, imagen: '/images/imac.jpeg'},
     {id: 3, nombre: 'iPad Mini', precio: 400, imagen: '/images/ipad-mini.jpg'},

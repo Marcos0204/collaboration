@@ -7,8 +7,11 @@ import { dataProductos } from '../api/Data'
 const AppState = ({children}) => {
     const [articulos, guardarArticulo] = useState([])
     const [ carrito, guardarCarrito ] = useState([])
+    const [busqueda, guardarBusqueda] = useState([])
     useEffect(()=> {
+       
         guardarArticulo(dataProductos)
+        
         // eslint-disable-next-line
     }, [])
     
@@ -34,13 +37,26 @@ const AppState = ({children}) => {
         guardarCarrito(nuevaLista)
     }
 
+    // funcion para filtrar productos
+    const filtrarProductos = valor =>{
+        const array = articulos
+        
+        if(valor === '') return  guardarBusqueda([]);
+        if(valor !== ''){
+            const nuevoArray = array.filter(({ nombre }) => nombre.toLowerCase().includes(valor.toLowerCase()));
+            guardarBusqueda(nuevoArray)
+        } 
+    }
+
     return (
         <AppContext.Provider
             value={{
                 articulos: articulos,
                 carrito: carrito,
+                busqueda:busqueda,
                 agregarAlCarro,
-                eliminarProducto
+                eliminarProducto,
+                filtrarProductos
             }}
         >
             {children}
